@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    @reviews = Review.where(restaurant_id: params[:id])
   end
 
   # GET /restaurants/new
@@ -18,8 +19,8 @@ class RestaurantsController < ApplicationController
   end
 
   # GET /restaurants/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /restaurants
   # POST /restaurants.json
@@ -39,27 +40,27 @@ class RestaurantsController < ApplicationController
 
   # PATCH/PUT /restaurants/1
   # PATCH/PUT /restaurants/1.json
-  def update
-    respond_to do |format|
-      if @restaurant.update(restaurant_params)
-        format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
-        format.json { render :show, status: :ok, location: @restaurant }
-      else
-        format.html { render :edit }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @restaurant.update(restaurant_params)
+  #       format.html { redirect_to @restaurant, notice: 'Restaurant was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @restaurant }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /restaurants/1
   # DELETE /restaurants/1.json
-  def destroy
-    @restaurant.destroy
-    respond_to do |format|
-      format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @restaurant.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
